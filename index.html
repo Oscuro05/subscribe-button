@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title><DOM-projects></DOM-projects></title>
+
+    <style>
+
+        .subscribe {
+            border: none;
+            background-color: black;
+            color: white;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .subscribed {
+            background-color: rgb(193, 193, 193);
+            color: black;
+        }
+
+        .calculate {
+            background-color: green;
+            color: white;
+            border: none;
+            font-size: 15px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .input {
+            padding: 10px 15px;
+            
+        }
+
+
+
+    </style>
+</head>
+<body>
+<p>Youtube Subscribe Button</p>
+
+<button onclick="subscribe()" class="js-sub-button subscribe">Subscribe</button>
+
+<p> Amazon Shipping Calculator</p>
+<p> Above 50$, no shipping charge</p>
+<p> Below 50$, a 10$ shipping charge will be applied</p>
+
+<input type="text" class="js-cost input" placeholder="Calculate" onkeydown="costEnter()">
+<button class="calculate" onclick="Calculate()"> Calculate</button>
+<p class="js-total">
+</p>
+
+
+<script>
+
+    window.document
+    window.console.log('window');
+    window.alert
+
+    function costEnter() {
+        if (event.key === 'Enter') {
+            Calculate()
+        }
+    }
+
+    function Calculate() {
+        let cost = Number(document.querySelector('.js-cost').value);
+
+        if (cost < 40) {
+            cost = cost + 10;
+            document.querySelector('.js-total').innerHTML = `$${cost}`;
+        } else {document.querySelector('.js-total').innerHTML = `$${cost}`}
+    }
+
+
+
+    function subscribe() {
+    const buttonElement = document.querySelector(".js-sub-button");
+
+    if (buttonElement.innerText === "Subscribe") {
+        //innerText ignores the spaces and only reads the text as opposed to innerHTML
+        buttonElement.innerHTML = "Subscribed";
+        buttonElement.classList.add('subscribed');
+    } else {
+        buttonElement.innerHTML = "Subscribe";
+        buttonElement.classList.remove('subscribed');
+    }
+    }
+</script>
+</body>
+</html>
